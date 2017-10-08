@@ -1,0 +1,28 @@
+{
+    "name": "dasprid/dagr",
+    "type": "library",
+    "license": "BSD-2-Clause",
+    "authors": [
+        {
+            "name": "Ben Scholzen",
+            "email": "mail@dasprids.de"
+        }
+    ],
+    "require": {
+        "php-64bit": "^7.1",
+        "dasprid/dagr-tzdb": "dev-master"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^6.4"
+    },
+    "autoload": {
+        "psr-4": {
+            "Dagr\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "DagrTest\\": "test/"
+        }
+    }
+}
