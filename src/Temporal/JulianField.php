@@ -4,9 +4,14 @@ declare(strict_types = 1);
 namespace Dagr\Temporal;
 
 use Dagr\Exception\DateTimeException;
+use Dagr\NotClonableTrait;
+use Dagr\NotSerializableTrait;
 
 final class JulianField implements TemporalFieldInterface
 {
+    use NotClonableTrait;
+    use NotSerializableTrait;
+
     /**
      * @var string
      */

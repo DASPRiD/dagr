@@ -3,6 +3,9 @@ declare(strict_types = 1);
 
 namespace Dagr\Temporal;
 
+use Dagr\Exception\DateTimeException;
+use Dagr\Exception\IllegalArgumentException;
+
 final class ValueRange
 {
     /**
@@ -36,7 +39,7 @@ final class ValueRange
     public static function ofTwo(int $min, int $max) : self
     {
         if ($min > $max) {
-            // @todo thjrow exception: Minimum value must be less than maximum value
+            throw new IllegalArgumentException('Minimum value must be less than maximum value');
         }
 
         return new self($min, $min, $max, $max);
@@ -50,15 +53,15 @@ final class ValueRange
     public static function ofFour(int $minSmallest, int $minLargest, int $maxSmallest, int $maxLargest) : self
     {
         if ($minSmallest > $minLargest) {
-            // @todo throw exception: Smallest minimum value must be less than largest minimum value
+            throw new IllegalArgumentException('Smallest minimum value must be less than largest minimum value');
         }
 
         if ($maxSmallest > $maxLargest) {
-            // @todo throw exception: Smallest minimum value must be less than largest minimum value
+            throw new IllegalArgumentException('Smallest maximum value must be less than largest maximum value');
         }
 
         if ($minLargest > $maxLargest) {
-            // @todo throw exception: Minimum value must be less than maximum value
+            throw new IllegalArgumentException('Minimum value must be less than maximum value');
         }
 
         return new self($minSmallest, $minLargest, $maxSmallest, $maxLargest);
@@ -97,7 +100,7 @@ final class ValueRange
     public function checkValidValue(int $value, TemporalFieldInterface $field) : int
     {
         if (!$this->isValidValue($value)) {
-            // @todo throw exception
+            throw new DateTimeException('Invalid value for ' . $field . ' (values values: ' . $this . '): ' . $value);
         }
 
         return $value;

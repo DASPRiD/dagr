@@ -19,7 +19,6 @@ use Dagr\Temporal\TemporalQueries;
 use Dagr\Temporal\TemporalQueryInterface;
 use Dagr\Temporal\TemporalUnitInterface;
 use Dagr\Temporal\ValueRange;
-use Dagr\TimeZone\AbstractTimeZoneId;
 use Dagr\TimeZone\TimeZoneOffset;
 
 final class LocalTime implements TemporalInterface, TemporalAdjusterInterface

@@ -3,10 +3,15 @@ declare(strict_types = 1);
 
 namespace Dagr\Temporal;
 
+use Dagr\NotClonableTrait;
+use Dagr\NotSerializableTrait;
 use Dagr\Year;
 
 final class ChronoField implements TemporalFieldInterface
 {
+    use NotClonableTrait;
+    use NotSerializableTrait;
+
     private const TIME_BASED = 'time-based';
     private const DATE_BASED = 'date-based';
     private const OTHER = 'other';

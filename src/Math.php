@@ -7,6 +7,10 @@ use Dagr\Exception\ArithmeticException;
 
 final class Math
 {
+    private function __construct()
+    {
+    }
+
     public static function floorMod(int $x, int $y) : int
     {
         return $x - self::floorDiv($x, $y) * $y;

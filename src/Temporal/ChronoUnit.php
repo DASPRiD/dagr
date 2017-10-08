@@ -4,9 +4,14 @@ declare(strict_types = 1);
 namespace Dagr\Temporal;
 
 use Dagr\Duration;
+use Dagr\NotClonableTrait;
+use Dagr\NotSerializableTrait;
 
 final class ChronoUnit implements TemporalUnitInterface
 {
+    use NotClonableTrait;
+    use NotSerializableTrait;
+
     private const TIME_BASED = 'time-based';
     private const DATE_BASED = 'date-based';
 

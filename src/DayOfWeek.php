@@ -18,6 +18,8 @@ use Dagr\Temporal\ValueRange;
 
 final class DayOfWeek implements TemporalAccessorInterface, TemporalAdjusterInterface
 {
+    use NotClonableTrait;
+    use NotSerializableTrait;
     use DefaultTemporalAccessorTrait {
         range as private defaultRange;
         get as private defaultGet;
