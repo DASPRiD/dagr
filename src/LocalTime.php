@@ -23,6 +23,7 @@ use Dagr\TimeZone\TimeZoneOffset;
 
 final class LocalTime implements TemporalInterface, TemporalAdjusterInterface
 {
+    use NotClonableTrait;
     use DefaultTemporalAccessorTrait {
         range as private defaultRange;
         get as private defaultGet;

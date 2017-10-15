@@ -5,6 +5,8 @@ namespace Dagr;
 
 use Dagr\Exception\DateTimeException;
 use Dagr\Exception\UnsupportedTemporalTypeException;
+use Dagr\Format\DateTimeFormatterBuilder;
+use Dagr\Format\TextStyle;
 use Dagr\Temporal\ChronoField;
 use Dagr\Temporal\ChronoUnit;
 use Dagr\Temporal\DefaultTemporalAccessorTrait;
@@ -79,6 +81,14 @@ final class DayOfWeek implements TemporalAccessorInterface, TemporalAdjusterInte
     public function getValue() : int
     {
         return $this->index + 1;
+    }
+
+    public function getDisplayName(TextStyle $style, string $locale) : string
+    {
+        return (new DateTimeFormatterBuilder())
+            ->appendText(ChronoField::dayOfWeek(), $style)
+            ->toFormatter($locale)
+            ->format($this);
     }
 
     public function isSupportedField(TemporalFieldInterface $field) : bool

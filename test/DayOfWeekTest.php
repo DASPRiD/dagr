@@ -6,6 +6,7 @@ namespace DagrTest;
 use Dagr\DayOfWeek;
 use Dagr\Exception\DateTimeException;
 use Dagr\Exception\ExceptionInterface;
+use Dagr\Format\TextStyle;
 use Dagr\LocalTime;
 use Dagr\Temporal\ChronoField;
 use Dagr\Temporal\ChronoUnit;
@@ -159,6 +160,11 @@ final class DayOfWeekTest extends AbstractDateTimeTest
             [6, -1, 5],
             [7, -1, 6],
         ];
+    }
+
+    public function testGetText() : void
+    {
+        self::assertSame('Mon', DayOfWeek::monday()->getDisplayName(TextStyle::short(), 'en-US'));
     }
 
     /**
